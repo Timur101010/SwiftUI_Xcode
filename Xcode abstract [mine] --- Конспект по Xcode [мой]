@@ -1,0 +1,993 @@
+Конспект по Xcode [мой]
+—----------------------------------------------------------------------------------------------------
+Лекция 1. Установка
+
+установка xcode проходит через браузер (оф. сайт Эпл) или через app-store
+
+
+—------------------------------------------------------------------------------------------------------
+Лекция 2. Настройка проекта
+
+Название -> компания -> идентификатор -> готовый идентификатор -> интерфейс -> язык программирования -> core data -> include tests -> месторасположение проекта
+
+
+—------------------------------------------------------------------------------------------------------------
+Лекция 3. Структура проекта
+
+Исправление ошибок происходит в терминале (в левой части ошибки, а в правой- кодовое объяснение исправления ошибок (его можно редактировать) )
+
+—--------------------------------------------------------------------------------------------------------------------
+Лекция 4. Constants, variables, operators
+Пример
+let name = “Jason” (константа)
+name = “Amy” (упрощенный вариант константы)
+
+константы: 
+let 
+var
+
+Пример кода
+var weight = 100
+var AdditionalWeight = 50
+weight = weight + AdditionalWeight 
+
+
+[так же может быть написано таким образом: weight += AdditionalWeight]
+
+
+
+
+x = weight
+y = AdditionalWeight
+a = weight (all)
+
+
+Знаки [=, +, -, *, /]
+плюс (+)
+равно (=)
+минус (-)
+умножить (*)
+делить (/)
+
+
+
+Сокращение константы [таблица]
+Полный вариант константы
+Упрощенный вариант константы
+Формула уравнения в сокращении
+a = x + y
+a += y
++=
+a = x - y
+a -= y
+-=
+a = x * y
+a *= y
+*=
+a = x / y
+a /= y
+/=
+
+
+
+ИСПОЛЬЗОВАНИЕ КОНСТАНТЫ VAR СИЛЬНЕЕ ЧЕМ ИСПОЛЬЗОВАНИЕ КОНСТАНТЫ LET
+
+—------------------------------------------------------------------------------------------------------------------------
+Лекция 5. Strings & characters
+
+# Урок по строкам и символам в Swift
+
+## Введение в строки и символы
+
+В Swift строки представляют собой основной тип данных, используемый для представления текстовой информации. Строка - это последовательность символов, таких как буквы, цифры или символы, заключенных в двойные кавычки (""). Символы, с другой стороны, являются отдельными единицами текстовой информации и могут представлять одну букву, цифру или символ. Понимание работы со строками и символами важно для многих задач программирования, таких как обработка пользовательского ввода, отображение информации и манипуляции с текстовыми данными.
+
+
+
+
+
+## Создание строк
+
+В Swift вы можете создать строку с помощью строковых литералов. Строковый литерал - это последовательность символов, заключенных в двойные кавычки. Вот пример создания строки:
+
+let greeting = "Привет, Мир!"
+
+В приведенном выше примере мы создали строку с именем `greeting` со значением "Привет, Мир!".
+
+## Строковая интерполяция
+Строковая интерполяция - это мощная функция в Swift, которая позволяет включать переменные и выражения в содержимое строки. Для выполнения строковой интерполяции используется синтаксис `\()`. Вот пример:
+
+let name = "Джон"
+let age = 30
+let message = "Меня зовут \(name) и мне \(age) лет."
+print(message)
+
+ВЫВОД: Меня зовут Джон и мне 30 лет.
+
+## Конкатенация строк
+Конкатенация строк - это процесс объединения двух или более строк в одну строку. Вы можете использовать оператор `+` для объединения строк. Вот пример:
+
+let firstName = "Джон"
+let lastName = "Доу"
+let fullName = firstName + " " + lastName
+print(fullName)
+
+ВЫВОД: Джон Доу
+## Длина строки
+
+Чтобы получить длину строки (т.е. количество символов в ней), вы можете использовать свойство `count` у строки. Вот пример:
+
+let message = "Привет, Мир!"
+let length = message.count
+print("Длина строки составляет \(length) символов.")
+
+
+Выводом
+ кода выше будет:
+```
+Длина строки составляет 13 символов.
+```
+
+## Доступ к отдельным символам
+
+Вы можете получить доступ к отдельным символам строки, используя синтаксис с индексами. Каждому символу в строке соответствует свой индекс, начинающийся с нуля. Вот пример:
+
+```swift
+let message = "Привет, Мир!"
+let firstCharacter = message[message.startIndex]
+let fifthCharacter = message[message.index(message.startIndex, offsetBy: 4)]
+
+print("Первый символ: \(firstCharacter)")
+print("Пятый символ: \(fifthCharacter)")
+```
+
+Выводом кода выше будет:
+```
+Первый символ: П
+Пятый символ: т
+```
+
+## Изменение строк
+
+В Swift строки по умолчанию являются неизменяемыми, что означает, что вы не можете изменить отдельные символы напрямую. Однако вы можете создать новую строку с нужными изменениями. Вот пример:
+
+
+```swift
+var message = "Привет, Мир!"
+message.append("!") // Добавляет восклицательный знак в конец строки
+message.insert(contentsOf: " Добро пожаловать", at: message.index(before: message.endIndex)) // Вставляет " Добро пожаловать" перед последним символом
+print(message)
+```
+
+Выводом кода выше будет:
+```
+Привет, Мир! Добро пожаловать!
+```
+
+## Методы и свойства строк
+
+Swift предоставляет множество методов и свойств для работы со строками. Некоторые часто используемые методы и свойства включают:
+
+- `uppercased()` и `lowercased()`: Для преобразования строки в верхний или нижний регистр.
+- `isEmpty`: Для проверки, является ли строка пустой.
+- `hasPrefix(_:)` и `hasSuffix(_:)`: Для проверки, начинается или заканчивается ли строка заданным подстрокой.
+- `split(separator:)`: Для разделения строки на массив подстрок на основе заданного разделителя.
+
+## Заключение
+
+Строки и символы являются основными строительными блоками для работы с текстовой информацией в Swift. Понимая, как создавать, изменять и получать доступ к строкам и символам, вы сможете выполнять широкий спектр задач, связанных с текстом, в своем коде на Swift. Продолжайте практиковаться и экспериментировать со строками, чтобы стать более опытным в их эффективном использовании в ваших программах.
+
+
+
+
+
+
+
+
+
+
+—------------------------------------------------------------------------------------------------------------------------
+Лекция 6. Подстроки и сравнение
+
+# Урок о подстроках в Swift
+
+## Введение в подстроки
+
+В Swift подстрока - это часть строки, представляющая собой последовательность символов из исходной строки. Подстроки предоставляют удобный способ работать с частью большой строки без создания совершенно новой строки. Подстроки особенно полезны, когда вам нужно выполнить операции с определенной частью строки без лишних затрат на копирование или выделение новой памяти.
+
+## Создание подстрок
+
+Для создания подстроки вы можете использовать метод `substring(with:)` на объекте типа `String`. Этот метод принимает параметр типа `Range<String.Index>`, который определяет диапазон символов, которые вы хотите извлечь. Кроме того, в Swift предусмотрен более краткий синтаксис с использованием индексирования с помощью диапазона (`Range`) или замкнутого диапазона (`ClosedRange`). Вот пример:
+
+```swift
+let message = "Hello, World!"
+
+// С использованием метода substring(with:)
+let startIndex = message.index(message.startIndex, offsetBy: 7)
+let endIndex = message.index(message.endIndex, offsetBy: -1)
+let substring1 = message.substring(with: startIndex..<endIndex)
+
+// С использованием синтаксиса с индексированием
+let range = 7..<message.count-1
+let substring2 = message[range]
+
+print(substring1) // Вывод: "World"
+print(substring2) // Вывод: "World"
+```
+
+
+
+## Частичный диапазон от начала или до конца
+
+В Swift вы можете создать частичный диапазон от начала или до конца строки с помощью операторов частичного диапазона `..<` и `...`. Оператор `..<` создает полуоткрытый диапазон, а оператор `...` создает замкнутый диапазон. Вот пример:
+
+```swift
+let message = "Hello, World!"
+
+let partialRangeFromStart = ..<message.index(message.startIndex, offsetBy: 5)
+let partialRangeFromEnd = message.index(message.endIndex, offsetBy: -6)...
+
+let substringFromStart = message[partialRangeFromStart]
+let substringFromEnd = message[partialRangeFromEnd]
+
+print(substringFromStart) // Вывод: "Hello"
+print(substringFromEnd)   // Вывод: "World"
+```
+
+## Производительность подстрок
+
+Важно отметить, что подстроки в Swift являются легковесными и используют ту же память, что и исходная строка. Это означает, что если вы создаете подстроку, она не создает новую копию символов. Вместо этого она содержит ссылку на исходную строку и диапазон символов, которые ей интересны.
+
+Однако, так как подстроки используют ту же память, что и исходная строка, они могут удерживать память исходной строки, что может привести к неожиданному использованию памяти. Чтобы избежать потенциальных проблем, следует быть осторожным при использовании подстрок с длительным сроком службы или при работе с большими строками.
+
+## Преобразование подстрок в строки
+
+Если вам нужен отдельный объект типа `String` из подстроки, вы можете использовать инициализатор `String()` для преобразования ее. Это создаст новую копию символов подстроки в отдельном блоке памяти. Вот пример:
+
+
+
+```swift
+let message = "Hello, World!"
+let range = 7..<message.count-1
+let substring = message[range]
+
+let standaloneString = String(substring)
+print(standaloneString) // Вывод: "World"
+```
+
+## Заключение
+Подстроки в Swift предоставляют мощный и эффективный способ работать с определенными частями строки без создания совершенно новых строк. Понимая, как создавать и работать с подстроками, вы можете выполнять различные операции с текстом более эффективно и эффективно. Однако следует помнить о использовании памяти при работе с подстроками с длительным сроком службы или с большими строками, чтобы избежать потенциальных проблем с производительностью.
+—------------------------------------------------------------------------------------------------------------------------
+
+Лекция 7. Повторение перед тестом
+
+
+Площадка 1
+import UIKit
+var greeting = "Hello, playground"
+print(greeting)
+var name = "Jason"
+name = "Amy"
+var weight = 100
+var additionalWeight = 50
+weight = weight / additionalWeight
+var age: Int = 10
+age = Int(5.3)
+  //---------//
+ // Strings //
+//---------//
+// multiline string
+print("Multi line string")
+var address = """
+123 Main St
+Apt. 483
+Mainville, CA
+"""
+print(address)
+print("-------------")
+print("Unicode based characters")
+/// special character string
+let specialChars = "\u{29}\u{2680}"
+print(specialChars)
+print("-------------")
+print("Multi line vs extended delimiters")
+/// multie line vs extended delimiters
+address = "124 Oak St.\nOakville, CA"
+print(address)
+address = #"124 Oak St.\nOakville, CA"#
+print(address)
+print("-------------")
+/// Empty checks
+let emptyName = String()
+if emptyName.isEmpty {
+    print("emptyName is empty")
+}
+print("-------------")
+print("String concatenation")
+/// String concatenation
+var sentence = "We are learning "
+sentence += "Swift programming language"
+print(sentence)
+print("-------------")
+/// Iteration over characters in a string
+print("iterate over sentence using for in loop")
+for char in sentence {
+    print(char)
+}
+print("-------------")
+/// Single character
+let singleCharacter: Character = "A"
+/// Collection / array of characters
+let arrayOfCharacters: [Character] = ["A", "n", "i", "m", "a", "l"]
+var charactersStr = String(arrayOfCharacters)
+/// Concatenate character to a string
+let questionMark: Character = "?"
+charactersStr.append(questionMark)
+print("charactersStr = \(charactersStr)")
+/// Interpolation of string
+let animalCount = "no"
+print("There are \(animalCount) animals in the park")
+print("-------------")
+/// Swift String & Characters are fully Unicode compliant
+/// Extended grapheme cluster is a sequence of one or more Unicode scalars, e.g. \u{E9}
+/// Character: a single extended grapheme cluster
+let eAcute: Character = "\u{E9}"                         // é
+let combinedEAcute: Character = "\u{65}\u{301}"          // e followed by
+let precomposed: Character = "\u{D55C}"                  // 한
+let decomposed: Character = "\u{1112}\u{1161}\u{11AB}"   // ᄒ, ᅡ, ᆫ
+/// String Indices
+var continent = "North America"
+let startIndex = continent.startIndex
+print("start index = \(startIndex)")
+print(continent[startIndex])
+print("-------------")
+let endIndex = continent.endIndex
+print("end index = \(endIndex)")
+print("-------------")
+// Runtime error
+//print(continent[endIndex])
+let beforeIndex = continent.index(before: endIndex)
+print("beforeIndex = \(beforeIndex)")
+print(continent[beforeIndex])
+print("-------------")
+let afterIndex = continent.index(after: startIndex)
+print("afterIndex = \(afterIndex)")
+print(continent[afterIndex])
+print("-------------")
+let offsetIndex = continent.index(startIndex,
+                                  offsetBy: 3)
+print("offsetIndex = \(offsetIndex)")
+print(continent[offsetIndex])
+print("-------------")
+// Run-time error
+// print(continent[endIndex])
+print("iterate over continent using indices")
+for index in continent.indices {
+    print("\(continent[index])")
+}
+print("-------------")
+print("insert character at the end of continent string")
+continent.insert(":",
+                 at: continent.endIndex)
+print("\(continent)")
+print("-------------")
+print("remove character at the end of continent string")
+continent.remove(at: continent.index(before: continent.endIndex))
+print("\(continent)")
+print("-------------")
+print("string ranges")
+let range = continent.index(continent.endIndex,
+                            offsetBy: -4)..<continent.endIndex
+continent.removeSubrange(range)
+print("\(continent)")
+print("-------------")
+/// Substrings
+/// Substrings and String both conform to StringProtocol
+/// and share similar functions.
+print("substring")
+let index = continent.firstIndex(of: " ") ?? continent.endIndex
+let continentSubstring = continent[..<index]
+let newString = String(continentSubstring)
+print("\(newString)")
+print("-------------")
+/// Comparison of Strings
+///
+/// String and Character comparison
+print("string and character comparison")
+let string1 = "North America"
+let string2 = "North America"
+/// String/characters are equal if their extended grapheme are canonically equivalent
+/// Same linguistic meaning and appearance, even if underlying Unicode scalars are different.
+if string1 == string2 {
+    print("\(string1) and \(string2) are equal")
+}
+/// café (uses latin small letter e with acute)
+let cafe1 = "caf\u{E9}"
+// café (uses latin small letter e and combines acute accent)
+let cafe2 = "caf\u{65}\u{301}"
+if cafe1 == cafe2 {
+    print("both \(cafe1) and \(cafe2) are equal")
+}
+print("-------------")
+/// Prefix Equality
+print("prefix and suffix comparison")
+let countries = [
+    "Ireland",
+    "Italy",
+    "France",
+    "Germany",
+    "Uruguay",
+    "United States of America",
+    "United Kingdom",
+    "United Arab Emirates"
+]
+for country in countries {
+    let prefix = "United"
+    if country.hasPrefix(prefix) {
+        print("\(country) has prefix \(prefix)")
+    }
+    let suffix = "America"
+    if country.hasSuffix(suffix) {
+        print("\(country) has suffix \(suffix)")
+    }
+}
+print("-------------")
+print("unicode representation")
+for codeUnit in continent.utf16 {
+    print("\(codeUnit)")
+}
+
+
+
+Площадка 2
+import UIKit
+var greeting = "Hello, playground"
+print(greeting)
+var name = "Jason"
+name = "Amy"
+var weight = 100
+var additionalWeight = 50
+weight = weight / additionalWeight
+var age: Int = 10
+age = Int(5.3)
+  //---------//
+ // Strings //
+//---------//
+// multiline string
+print("Multi line string")
+var address = """
+123 Main St
+Apt. 483
+Mainville, CA
+"""
+print(address)
+print("-------------")
+print("Unicode based characters")
+/// special character string
+let specialChars = "\u{29}\u{2680}"
+print(specialChars)
+print("-------------")
+print("Multi line vs extended delimiters")
+/// multie line vs extended delimiters
+address = "124 Oak St.\nOakville, CA"
+print(address)
+address = #"124 Oak St.\nOakville, CA"#
+print(address)
+print("-------------")
+/// Empty checks
+let emptyName = String()
+if emptyName.isEmpty {
+    print("emptyName is empty")
+}
+print("-------------")
+print("String concatenation")
+/// String concatenation
+var sentence = "We are learning "
+sentence += "Swift programming language"
+print(sentence)
+print("-------------")
+/// Iteration over characters in a string
+print("iterate over sentence using for in loop")
+for char in sentence {
+    print(char)
+}
+print("-------------")
+/// Single character
+let singleCharacter: Character = "A"
+/// Collection / array of characters
+let arrayOfCharacters: [Character] = ["A", "n", "i", "m", "a", "l"]
+var charactersStr = String(arrayOfCharacters)
+/// Concatenate character to a string
+let questionMark: Character = "?"
+charactersStr.append(questionMark)
+print("charactersStr = \(charactersStr)")
+/// Interpolation of string
+let animalCount = "no"
+print("There are \(animalCount) animals in the park")
+print("-------------")
+/// Swift String & Characters are fully Unicode compliant
+/// Extended grapheme cluster is a sequence of one or more Unicode scalars, e.g. \u{E9}
+/// Character: a single extended grapheme cluster
+let eAcute: Character = "\u{E9}"                         // é
+let combinedEAcute: Character = "\u{65}\u{301}"          // e followed by
+let precomposed: Character = "\u{D55C}"                  // 한
+let decomposed: Character = "\u{1112}\u{1161}\u{11AB}"   // ᄒ, ᅡ, ᆫ
+/// String Indices
+var continent = "North America"
+let startIndex = continent.startIndex
+print("start index = \(startIndex)")
+print(continent[startIndex])
+print("-------------")
+let endIndex = continent.endIndex
+print("end index = \(endIndex)")
+print("-------------")
+// Runtime error
+//print(continent[endIndex])
+let beforeIndex = continent.index(before: endIndex)
+print("beforeIndex = \(beforeIndex)")
+print(continent[beforeIndex])
+print("-------------")
+let afterIndex = continent.index(after: startIndex)
+print("afterIndex = \(afterIndex)")
+print(continent[afterIndex])
+print("-------------")
+let offsetIndex = continent.index(startIndex,
+                                  offsetBy: 3)
+print("offsetIndex = \(offsetIndex)")
+print(continent[offsetIndex])
+print("-------------")
+// Run-time error
+// print(continent[endIndex])
+print("iterate over continent using indices")
+for index in continent.indices {
+    print("\(continent[index])")
+}
+print("-------------")
+print("insert character at the end of continent string")
+continent.insert(":",
+                 at: continent.endIndex)
+print("\(continent)")
+print("-------------")
+print("remove character at the end of continent string")
+continent.remove(at: continent.index(before: continent.endIndex))
+print("\(continent)")
+print("-------------")
+print("string ranges")
+let range = continent.index(continent.endIndex,
+                            offsetBy: -4)..<continent.endIndex
+continent.removeSubrange(range)
+print("\(continent)")
+print("-------------")
+/// Substrings
+/// Substrings and String both conform to StringProtocol
+/// and share similar functions.
+print("substring")
+let index = continent.firstIndex(of: " ") ?? continent.endIndex
+let continentSubstring = continent[..<index]
+let newString = String(continentSubstring)
+print("\(newString)")
+print("-------------")
+/// Comparison of Strings
+///
+/// String and Character comparison
+print("string and character comparison")
+let string1 = "North America"
+let string2 = "North America"
+/// String/characters are equal if their extended grapheme are canonically equivalent
+/// Same linguistic meaning and appearance, even if underlying Unicode scalars are different.
+if string1 == string2 {
+    print("\(string1) and \(string2) are equal")
+}
+/// café (uses latin small letter e with acute)
+let cafe1 = "caf\u{E9}"
+// café (uses latin small letter e and combines acute accent)
+let cafe2 = "caf\u{65}\u{301}"
+if cafe1 == cafe2 {
+    print("both \(cafe1) and \(cafe2) are equal")
+}
+print("-------------")
+/// Prefix Equality
+print("prefix and suffix comparison")
+let countries = [
+    "Ireland",
+    "Italy",
+    "France",
+    "Germany",
+    "Uruguay",
+    "United States of America",
+    "United Kingdom",
+    "United Arab Emirates"
+]
+for country in countries {
+    let prefix = "United"
+    if country.hasPrefix(prefix) {
+        print("\(country) has prefix \(prefix)")
+    }
+    let suffix = "America"
+    if country.hasSuffix(suffix) {
+        print("\(country) has suffix \(suffix)")
+    }
+}
+print("-------------")
+print("unicode representation")
+for codeUnit in continent.utf16 {
+    print("\(codeUnit)")
+}
+
+
+
+—------------------------------------------------------------------------------------------------------------------------
+Лекция 8. Тестирование (тест по всем пройденным темам)
+
+ЗАДАНИЕ: 
+• Implement a function that takes an example string and prefix string as arguments. The function should return true if the prefix string appears in front of the example string. You don't need to combine example and prefix strings, you can directly check if the example string includes the prefix string.
+• Implement a function that takes 2 strings (part1 and part2) and concatenates them. The function should return a concatenated string.
+
+
+КОД:
+import UIKit
+//
+//var greeting = "Hello, playground"
+class Exercise {
+    static func stringAppearsInFront(exampleString: String, prefixString: String) -> Bool {
+        // We use the hasPrefix method to check if it contains a prefix at the beginning of the example string.
+        return exampleString.hasPrefix(prefixString)
+    }
+    
+    static func concatenateString(part1: String, part2: String) -> String {
+        // We use the + operator to concatenate two strings.
+        return part1 + part2
+    }
+}
+
+
+
+
+
+
+
+
+
+
+—------------------------------------------------------------------------------------------------------------------------
+Лекция 9. Типы коллекций: введение
+Ссылка на презентацию урока
+Короткая и длинная версии array
+Arrays<Element> - длинная версия array
+[Element] - короткая версия array 
+
+
+
+Конспект
+Тема: Типы коллекций (Collection Types): Введение
+
+I. Введение в коллекции
+
+   A. Определение коллекций
+   
+      1. Коллекции представляют собой структуры данных, предназначенные для хранения и управления группами элементов.
+      2. Они позволяют эффективно организовывать и обрабатывать большие объемы данных.
+      3. Коллекции играют важную роль в программировании, упрощая решение различных задач.
+
+   B. Зачем использовать коллекции
+
+      1. Удобство хранения: Коллекции позволяют хранить множество элементов одного типа в одной структуре данных.
+      2. Управление данными: Коллекции предоставляют удобные методы для добавления, удаления, поиска и модификации элементов.
+      3. Оптимизация производительности: Правильный выбор типа коллекции может ускорить выполнение операций над данными.
+
+  
+ C. Основные типы коллекций
+
+      1. Списки (List): Упорядоченные коллекции элементов, допускающие дублирование.
+      2. Множества (Set): Неупорядоченные коллекции уникальных элементов.
+      3. Словари (Dictionary): Коллекции пар "ключ-значение", где каждый ключ уникален.
+      4. Кортежи (Tuple): Упорядоченные коллекции элементов, неизменяемые после создания.
+      5. Очереди (Queue): Коллекции, работающие по принципу "первый пришел, первый ушел" (FIFO).
+      6. Стеки (Stack): Коллекции, работающие по принципу "последний пришел, первый ушел" (LIFO).
+
+II. Сравнение типов коллекций
+
+   A. Выбор коллекции в зависимости от задачи
+
+      1. Если нужно сохранить порядок элементов и допустить дублирование, используйте список (List).
+      2. Если необходимо хранить уникальные элементы без учета порядка, множество (Set) будет наилучшим выбором.
+      3. Для ассоциации данных по уникальным ключам, следует применять словари (Dictionary).
+      4. Кортежи (Tuple) подходят для статических наборов данных, которые не изменяются в процессе выполнения программы.
+      5. Очереди (Queue) и стеки (Stack) применяются для организации данных по принципу очереди или стека соответственно.
+
+   B. Оценка сложности операций
+
+      1. Различные типы коллекций имеют различную сложность выполнения операций (добавление, удаление, поиск и т. д.).
+      2. Важно учитывать сложность операций при выборе оптимальной коллекции для определенной задачи.
+
+
+
+
+III. Заключение
+
+   A. Подведение итогов
+
+      1. Коллекции являются важным инструментом при работе с данными в программировании.
+      2. Правильный выбор типа коллекции влияет на эффективность и производительность программы.
+
+   B. Значение изучения коллекций
+
+      1. Изучение типов коллекций позволяет программистам выбирать наиболее подходящую структуру данных для каждой задачи.
+      2. Эффективное использование коллекций повышает качество кода и упрощает разработку приложений.
+
+Конспект "Типы коллекций (Collection Types): Введение" предоставляет обзор темы, понятия и применение различных типов коллекций. При более детальном изучении каждого типа коллекции можно углубиться в специфические особенности и примеры их применения.
+
+
+
+—------------------------------------------------------------------------------------------------------------------------
+
+Лекция 10. Типы коллекций: Массивы
+
+Тема: Типы коллекций: Массивы
+
+I. Введение в массивы
+
+   A. Определение массивов
+
+      1. Массивы представляют собой упорядоченные коллекции элементов одного типа, расположенных в памяти последовательно.
+      2. Каждый элемент массива имеет свой индекс, который используется для доступа к элементу.
+
+   B. Создание массивов
+
+      1. Массивы могут быть созданы в различных языках программирования с помощью ключевого слова "Array" или синтаксических конструкций, предоставляемых языками.
+      2. Массивы могут быть одномерными, многомерными или динамическими в зависимости от языка и его возможностей.
+
+II. Работа с одномерными массивами
+
+   A. Инициализация массива
+
+      1. Создание массива с явным указанием элементов.
+      2. Создание массива с автоматическим определением размера.
+
+   B. Доступ к элементам массива
+
+      1. Обращение к элементам массива по индексу.
+      2. Получение значения элемента.
+      3. Присвоение значения элементу.
+
+   C. Работа с элементами массива
+
+      1. Изменение значений элементов.
+      2. Поиск элемента в массиве.
+      3. Удаление элемента из массива.
+
+III. Многомерные массивы
+
+   A. Определение многомерных массивов
+
+      1. Многомерные массивы представляют собой массивы с более чем одним индексом.
+      2. Они часто используются для представления матриц и таблиц данных.
+
+   B. Доступ к элементам многомерных массивов
+
+      1. Обращение к элементам по нескольким индексам.
+      2. Понимание порядка расположения элементов в памяти.
+
+   C. Примеры операций с многомерными массивами
+
+      1. Обход элементов вложенными циклами.
+      2. Транспонирование матрицы.
+      3. Выполнение математических операций над матрицами.
+
+IV. Динамические массивы
+
+   A. Определение динамических массивов
+
+      1. Динамические массивы создаются во время выполнения программы и позволяют изменять их размер по мере необходимости.
+
+   B. Преимущества и недостатки динамических массивов
+
+      1. Преимущества: гибкость, эффективное использование памяти.
+      2. Недостатки: возможность возникновения ошибок управления памятью (например, утечек памяти).
+
+   C. Работа с динамическими массивами
+
+      1. Выделение памяти для динамического массива.
+      2. Освобождение памяти после использования.
+      3. Изменение размера динамического массива.
+
+V. Заключение
+
+   A. Подведение итогов
+
+      1. Массивы являются важной и универсальной структурой данных в программировании.
+      2. Они позволяют эффективно организовывать и обрабатывать большие объемы данных.
+
+  
+ B. Применение массивов
+
+      1. Массивы широко используются для решения различных задач, таких как хранение данных, обработка изображений, математические вычисления и другие.
+
+Конспект "Типы коллекций: Массивы" предоставляет обзор работы с одномерными, многомерными и динамическими массивами. Рассмотрены базовые операции, доступ к элементам, их изменение и некоторые применения для многомерных массивов. Знание массивов является важным для разработки эффективных и масштабируемых программ.
+
+
+—------------------------------------------------------------------------------------------------------------------------
+
+Лекция 11. Тест (коллекции-типы коллекций)
+
+import UIKit
+//
+//var greeting = "Hello, playground"
+//part 1
+class Exercise {
+    // 1. Implement a function that takes in an array containing integer numbers and finds the sum of all elements in the array.
+    static func findSum(from array: [Int]) -> Int {
+        var sum = 0
+        for number in array {
+            sum += number
+        }
+        return sum
+    }
+    
+    // 2. Implement a function that takes in an array containing strings and returns the sorted array in ascending order.
+    static func sort(array: [String]) -> [String] {
+        return array.sorted()
+    }
+}
+//part 2
+class Exercise {
+    // 1. Implement a function that takes two arrays containing numbers and returns a single array containing content of both arrays.
+    static func merge(array1: [Int], array2: [Int]) -> [Int] {
+        var mergedArray = array1
+        mergedArray.append(contentsOf: array2)
+        return mergedArray
+    }
+    
+    // 2. Implement a function that takes in array and returns the biggest element in the array.
+    static func findMaxElement(in array: [Int]) -> Int? {
+        guard !array.isEmpty else {
+            return nil
+        }
+        
+        var maxElement = array[0]
+        for element in array {
+            if element > maxElement {
+                maxElement = element
+            }
+        }
+        return maxElement
+    }
+}
+// part 3
+class Exercise {
+    // 1. Implement a function that takes in an array and returns the smallest element in the array.
+    static func findMinElement(in array: [Int]) -> Int? {
+        guard !array.isEmpty else {
+            return nil
+        }
+        
+        var minElement = array[0]
+        for element in array {
+            if element < minElement {
+                minElement = element
+            }
+        }
+        return minElement
+    }
+    
+    // 2. Implement a function that finds whether an element exists in the array.
+    static func isElement(element: Int, presentIn array: [Int]) -> Bool {
+        return array.contains(element)
+    }
+}
+
+
+
+
+
+—------------------------------------------------------------------------------------------------------------------------
+Лекция 12. Collection Types: Sets
+
+Как писать сеты
+Set<Element>
+
+**Тема: Collection Types: Sets в Swift Programming**
+
+**1. Введение в коллекции в Swift**
+- Коллекции в Swift представляют структуры данных, позволяющие хранить и организовывать группы значений.
+- Swift предоставляет различные типы коллекций, включая массивы, наборы (sets) и словари.
+- В этом конспекте мы рассмотрим основы использования коллекций типа Sets в Swift.
+
+**2. Sets в Swift**
+- Набор (Set) представляет собой неупорядоченную коллекцию уникальных значений одного типа.
+- Основные особенности наборов:
+  - Не допускают повторяющихся элементов.
+  - Не сохраняют порядок элементов.
+  - Элементы набора должны быть хэшируемыми (hashable).
+
+
+**3. Создание Sets**
+- Sets могут быть созданы с помощью следующего синтаксиса:
+  ```swift
+  var mySet: Set<String> = ["apple", "banana", "orange"]
+  ```
+
+**4. Работа с элементами Sets**
+- Добавление элементов в набор:
+  ```swift
+  mySet.insert("grape")
+  ```
+
+- Удаление элементов из набора:
+  ```swift
+  mySet.remove("banana")
+  ```
+
+- Проверка наличия элемента в наборе:
+  ```swift
+  if mySet.contains("orange") {
+      print("Найден апельсин!")
+  } else {
+      print("Апельсина нет в наборе.")
+  }
+  ```
+
+**5. Итерация по Sets**
+- Sets могут быть пройдены при помощи цикла for-in:
+  ```swift
+  for fruit in mySet {
+      print(fruit)
+  }
+  ```
+
+**6. Операции с Sets**
+- Объединение двух наборов:
+  ```swift
+  let set1: Set<Int> = [1, 2, 3]
+  let set2: Set<Int> = [3, 4, 5]
+  let unionSet = set1.union(set2) // результат: {1, 2, 3, 4, 5}
+  ```
+
+- Пересечение двух наборов:
+  ```swift
+  let intersectionSet = set1.intersection(set2) // результат: {3}
+  ```
+
+- Вычитание одного набора из другого:
+  ```swift
+  let subtractingSet = set1.subtracting(set2) // результат: {1, 2}
+  ```
+
+**7. Изменение и присваивание Sets**
+- Sets могут быть изменены при помощи различных операций:
+  ```swift
+  var numbers: Set<Int> = [1, 2, 3]
+  numbers.insert(4) // добавление элемента
+  numbers.remove(2) // удаление элемента
+  ```
+
+**8. Сравнение Sets**
+- Sets могут быть сравниваемы на равенство и содержание:
+  ```swift
+  let setA: Set<Int> = [1, 2, 3]
+  let setB: Set<Int> = [2, 3, 4]
+
+  if setA == setB {
+      print("Наборы равны.")
+  } else if setA.isSubset(of: setB) {
+      print("setA является подмножеством setB.")
+  } else if setA.isSuperset(of: setB) {
+      print("setA является надмножеством setB.")
+  } else {
+      print("Наборы различны и не связаны включением.")
+  }
+  ```
+
+**9. Заключение**
+- Наборы (Sets) в Swift предоставляют удобный способ хранения уникальных значений.
+- Они не допускают повторяющихся элементов и не сохраняют порядок элементов.
+- При работе с Sets важно иметь дело с хэшируемыми типами данных для элементов набора.
+
+Это краткий конспект по использованию Sets в Swift. Надеюсь, что он поможет вам лучше понять основы работы с наборами и их применение в программировании на языке Swift.
+
+—------------------------------------------------------------------------------------------------------------------------
+
+Лекция 13. Практика. Создание приложения №1
+Схема подключения элемента к коду
+@IBOutlet(аутлет) var / let(переменная) countriesTableView(название элемента, который мы подсоединяем): UITableView! (UI-подключение) //подсоединение таблицы (однострочный комментарий автора)
+
+
